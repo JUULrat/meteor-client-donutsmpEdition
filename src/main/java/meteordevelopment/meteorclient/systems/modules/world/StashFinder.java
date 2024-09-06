@@ -110,6 +110,7 @@ public class StashFinder extends Module {
             else if (blockEntity instanceof AbstractFurnaceBlockEntity) chunk.furnaces++;
             else if (blockEntity instanceof DispenserBlockEntity) chunk.dispensersDroppers++;
             else if (blockEntity instanceof HopperBlockEntity) chunk.hoppers++;
+            else if (blockEntity instanceof Spawner) chunk.spawners++;
         }
 
         if (chunk.getTotal() >= minimumStorageCount.get()) {
@@ -222,6 +223,7 @@ public class StashFinder extends Module {
                     chunk.furnaces = Integer.parseInt(values[5]);
                     chunk.dispensersDroppers = Integer.parseInt(values[6]);
                     chunk.hoppers = Integer.parseInt(values[7]);
+                    chunk.spawners = Integer.parseInt(values[8]);
 
                     chunks.add(chunk);
                 }
@@ -285,6 +287,7 @@ public class StashFinder extends Module {
         public ChunkPos chunkPos;
         public transient int x, z;
         public int chests, barrels, shulkers, enderChests, furnaces, dispensersDroppers, hoppers;
+        public int spawners;
 
         public Chunk(ChunkPos chunkPos) {
             this.chunkPos = chunkPos;
